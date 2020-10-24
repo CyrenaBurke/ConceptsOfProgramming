@@ -1,0 +1,34 @@
+public class HelloWorld
+{
+    
+    static int[] swap(int first, int second)
+    {
+		int[] swapArray = new int[2];
+        int temp = 0;
+   
+        
+        temp = first;
+        first = second;
+        second = temp;
+        
+        swapArray[0] = first;
+        swapArray[1] = second;
+        
+        return swapArray;
+
+    }
+
+     public static void main(String []args)
+     {
+       
+      int first = 7;
+        int second = 5;
+		
+		int[] array = swap(first, second);
+		
+		System.out.println("First = " + array[0]);
+		System.out.println("Second = " + array[1]);
+       
+       
+     }
+}
