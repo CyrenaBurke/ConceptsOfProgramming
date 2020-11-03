@@ -1,0 +1,61 @@
+#COMBINED MENU IDEA: Menu is displayed until user is done ordering. Every order is prompted asking for the quantity. At the end of # ordering a summary is displayed.
+def getValidQuantity():
+    while True: #loops with invalid input
+        try:
+            integer = int(input("How many would you like to order?  "))
+            break #loop breaks and program continues
+        except ValueError: #prints message and loops around
+            print("\nThat is not a valid number.")
+    return integer
+    
+    
+#Start of actual program
+print("Welcome to Fast Food! Here is your list of options:")
+choice = True
+onesOrdered = 0    #counters to display summary at the end
+twosOrdered = 0
+threesOrdered = 0
+
+#while choice is still true, keep asking for new choice. Choice will set to false ONLY when user chooses option 4 and breaks out #of loop
+while choice:
+    print("1. Burger")
+    print("2. Fries")
+    print("3. Shake")
+    print("4. Done Ordering :)")
+    
+    choice = input("What would you like to order? ") 
+    if choice =="1":
+      added = getValidQuantity()    #added is temp variable to display how many items were added in only this loop
+      onesOrdered += added
+      print(str(added) + " burgers were added in the cart.\n")
+      
+    elif choice =="2":
+      added = getValidQuantity()
+      twosOrdered += added
+      print(str(added) + " orders of fries were added in the cart.\n")
+      
+    elif choice =="3":
+      added = getValidQuantity()
+      threesOrdered += added
+      print(str(added) + " shakes were added in the cart\n")
+      
+    elif choice =="4":
+      choice = False
+      
+    else:
+      print("That was not a choice, please try again!\n")
+
+#while loop ended --> print summary
+print("\nSUMMARY OF ORDER: ")
+print("---------------------------\n")
+if onesOrdered > 0:
+    print("\t- " + str(onesOrdered) + " burgers")
+    
+if twosOrdered > 0:
+    print("\t- " + str(twosOrdered) + " orders of fries")
+    
+if threesOrdered > 0:
+    print("\t- " + str(threesOrdered) + " shakes")
+    
+if onesOrdered == 0 and twosOrdered == 0 and threesOrdered == 0:
+    print("\t Nothing was ordered!")
