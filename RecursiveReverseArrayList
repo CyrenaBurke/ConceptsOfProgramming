@@ -1,0 +1,56 @@
+public class Main 
+{
+
+	public static void main(String[] args) 
+	{
+		 ArrayList<Integer> numbers = new ArrayList<Integer>();
+		 int index = 0;
+	        
+		 
+	        numbers.add(5);
+	        numbers.add(4);
+	        numbers.add(3);
+	        numbers.add(2);
+	        numbers.add(1);
+	        
+	        System.out.println(numbers);
+	        
+	        reverse(numbers, index, 4);
+	        
+		
+
+	}
+	
+	public static void reverse (ArrayList<Integer> numbers, int index, int size)
+	{
+		
+		
+		if(index > size)
+		{
+			return ;
+		}
+		
+		else
+		{
+			
+			for(int i = 0; i < size; i++)
+			{
+				int tempOne = 0;
+				int tempTwo = 0;
+			
+				tempOne = numbers.get(i);
+				tempTwo = numbers.get(i+1);
+				numbers.set(i, tempTwo);
+				numbers.set(i+1, tempOne);
+			
+			}
+			
+			size--;
+			reverse(numbers, index, size);
+			
+		}
+		
+		System.out.println(numbers);
+	}
+
+}
